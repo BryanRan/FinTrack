@@ -8,7 +8,7 @@ DB_PATH = BASE_DIR/"database"/"fintrack.db" # Emplacement de la bd
 
 SQL_ALCHEMY_DATABASE_URL = f"sqlite:///{DB_PATH}"
 
-# Creation d'une connexion avec la BD
+# Creation d'un moteur pour la BD
 engine = create_engine(
     SQL_ALCHEMY_DATABASE_URL,
     connect_args={"check_same_thread":False}
@@ -16,4 +16,4 @@ engine = create_engine(
 
 SessionLocal = sessionmaker(autocommit=False,autoflush=False,bind=engine) # Générer des sessions de BD
 
-Base = declarative_base() # Afin de faire de faire des requêtes SQL déclarative (ORM)
+Base = declarative_base() #  Pour faire des requêtes SQL déclarative (ORM)   
