@@ -16,4 +16,11 @@ engine = create_engine(
 
 SessionLocal = sessionmaker(autocommit=False,autoflush=False,bind=engine) # Générer des sessions de BD
 
-Base = declarative_base() #  Pour faire des requêtes SQL déclarative (ORM)   
+Base = declarative_base() #  Pour faire des requêtes SQL déclarative (ORM)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
